@@ -3,4 +3,10 @@
 
 {% block content %}
     <h1> hopsasa</h1>
+    {% if user %}
+        Pozdravljen, {{user.email()}}
+        <a href="{{logout_url}}">Odjava</a>
+    {% else %}
+        <a href="{{login_url}}">Odjava</a>
+    {% endif %}
 {% endblock %}

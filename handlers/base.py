@@ -20,8 +20,9 @@ class BaseHandler(webapp2.RequestHandler):
         return self.write(self.render_str(template, **kw))
 
     def render_template(self, view_filename, params=None):
-        if not params:
-            params = {}
+        piskotek = self.request.cookies.get('piskotek')
+        if piskotek:
+            params['piskotek'] = True
         template = jinja_env.get_template(view_filename)
         return self.response.out.write(template.render(params))
 
