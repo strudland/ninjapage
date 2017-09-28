@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import webapp2
-from handlers.base import MainHandler, CookieHandler
+from handlers.main import MainHandler
+from handlers.cookie import CookieHandler
 
 
 

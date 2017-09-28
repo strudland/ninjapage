@@ -26,18 +26,4 @@ class BaseHandler(webapp2.RequestHandler):
         return self.response.out.write(template.render(params))
 
 
-class MainHandler(BaseHandler):
-    def get(self):
 
-        params={}
-        piskotek = self.request.cookies.get('piskotek')
-        if piskotek:
-            params['piskotek'] = True
-        return self.render_template("home.html", params)
-
-class CookieHandler(BaseHandler):
-    def post(self):
-        #logika
-        self.response.set_cookie("piskotek", "nastavljen")
-
-        return self.redirect('/')
