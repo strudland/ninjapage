@@ -19,7 +19,7 @@ class BaseHandler(webapp2.RequestHandler):
     def render(self, template, **kw):
         return self.write(self.render_str(template, **kw))
 
-    def render_template(self, view_filename, params=None):
+    def render_template(self, view_filename, params={}):
         piskotek = self.request.cookies.get('piskotek')
         if piskotek:
             params['piskotek'] = True
