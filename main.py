@@ -2,7 +2,7 @@
 import webapp2
 from handlers.main import MainHandler
 from handlers.cookie import CookieHandler
-from handlers.topics import TopicAdd
+from handlers.topics import TopicAdd,TopicHandler
 
 
 
