@@ -3,7 +3,7 @@ from google.appengine.ext import ndb
 
 class Topic(ndb.Model):
     title = ndb.StringProperty()
-    content = ndb.Text()
+    content = ndb.TextProperty()
     user_email = ndb.StringProperty()
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now=True)
