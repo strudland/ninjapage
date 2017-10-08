@@ -19,7 +19,7 @@
             {% for topic in topics %}
 
                 <tr>
-                    <td><a href="/topic/{{ topic.key.id() }}"><strong>{{ topic.title }}</strong></a></td>
+                    <td><a href="/topic-details/{{ topic.key.id() }}">{{ topic.title }}</a></td>
                     <td>Empty for now</td>
                     <td>{{ topic.created_at.strftime('%d. %m. %Y, %H:%M') }}</td>
                 </tr>
