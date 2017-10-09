@@ -58,11 +58,7 @@ class TopicDetailsHandler(BaseHandler):
              return self.write("CSRF NAPAD")
 
          text = cgi.escape(self.request.get('text'))
+         Comment.create_comment(topic_id, text)
 
-         email = users.get_current_user().email()
 
-         topic = Topic.get_by_id(int(topic_id))
-
-         comment = Comment(content=text, user_email=email, topic_id=int(topic_id), topic_title=topic.title)
-         comment.put()
          return self.redirect('/')
