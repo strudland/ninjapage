@@ -49,7 +49,7 @@ class TopicDetailsHandler(BaseHandler):
              "topic": topic,
              "comments": comments,
          }
-         return self.render_template("topic_details.html",
+         return self.render_template("topic_details1.html",
                                     params)
 
      def post(self, topic_id):

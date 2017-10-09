@@ -7,4 +7,4 @@ class MainHandler(BaseHandler):
 
         topics = Topic.query(Topic.deleted == False).fetch()
         params = {"topics": topics}
-        return self.render_template("home.html", params=params)
+        return self.render_template("home1.html", params=params)

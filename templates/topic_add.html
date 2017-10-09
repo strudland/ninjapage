@@ -3,8 +3,9 @@
 {% block title %}Add new topic{% endblock title %}
 
 {% block content %}
+
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-offset-3">
         <form method="post">
             <input type="hidden" name="csrf-token" value="{{ csrf_token }}">
             <div class="form-group">
@@ -21,4 +22,5 @@
         </form>
     </div>
 </div>
+
 {% endblock content %}

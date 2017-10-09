@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}DOMA{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-3">Ninja Forum</h1>
+  <p class="lead">Welcome to Ninja forum!</p>
+</div>
+<div class="col-md-9">
+    <h2>Topic</h2>
+</div>
+<div class="col-md-1">
+    <h2>User</h2>
+</div>
+<div class="col-md-2">
+    <h2>Created</h2>
+</div>
+<div class="col-md-12">
+<div class="list-group-item">
+{% for topic in topics %}
+     <a class="tema" href="/topic-details/{{topic.key.id()}}">
+
+        <div class="iks">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+           <h3 class="home1">{{topic.title}}</h3>
+            <p class="home2">{{ topic.created_at.strftime('%d. %m. %Y, %H:%M') }}</p>
+            <p class="home2">{{topic.user_email}},&nbsp;&nbsp;</p>
+
+        </div>
+     </a>
+    <hr>
+{% endfor %}
+</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+ {% block title %}{{ topic.title }}{% endblock %}
+
+ {% block content %}
+    <div class="col-md-10 col-md-offset-1">
+     <a class="list-group-item">
+         <div>
+            <h2 id="h2details">{{ topic.title }}</h2>
+            <h6 id="h6details">{{ topic.created_at.strftime('%d. %m. %Y, %H:%M') }}</h6>
+             <hr>
+             <p>{{ topic.content}}</p>
+         </div>
+     </a>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Comments:</h4>
+        {% for comment in comments %}
+            <li class="list-group-item">
+            <h6 id="h6details">{{ comment.user_email }}</h6>
+            <p>{{ comment.content}}</p>
+            </li>
+        {% endfor %}
+    </div>
+
+     {% if user %}
+
+     <div class="row">
+         <div class="col-md-8 col-md-offset-2">
+             <form method="post">
+                 <input type="hidden" name="csrf-token" value="{{ csrf_token }}">
+
+                 <div class="form-group">
+                     <label>Add comment</label>
+                     <textarea name="text" class="form-control" rows="2" required></textarea>
+                 </div>
+
+                 <button type="submit" class="btn btn-success">Submit</button>
+             </form>
+         </div>
+     </div>
+
+     {% else %}<a href="{{ login_url }}">Prijava</a>{% endif %}
+ {% endblock %}
