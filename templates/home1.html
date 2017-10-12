@@ -22,9 +22,11 @@
 
         <div class="iks">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-           <h3 class="home1">{{topic.title}}</h3>
-            <p class="home2">{{ topic.created_at.strftime('%d. %m. %Y, %H:%M') }}</p>
+            <h3 class="home1">{{topic.title}}</h3>
+            <a class="home2" href="/topic-delete/{{ topic.key.id() }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+            <p class="home2">{{ topic.created_at.strftime('%d. %m. %Y, %H:%M') }}&nbsp;&nbsp;</p>
             <p class="home2">{{topic.user_email}},&nbsp;&nbsp;</p>
+
 
         </div>
      </a>
