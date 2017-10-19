@@ -65,9 +65,13 @@ class TopicDetailsHandler(BaseHandler):
 
 
 class DeleteTopicHandler(BaseHandler):
-    def get(self, topic_id):
+    def post(self, topic_id):
         topic = Topic.get_by_id(int(topic_id))
-        topic.deleted = True
-        topic.put()
+        user = users.get_current_user()
+        #check if the user is admin or author otherwise can't delete
+        if topic.user_email == user.email() or users.is_current_user_admin():
+            topic.deleted = True
+            topic.put()
+
 
         return self.redirect('/')

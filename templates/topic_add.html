@@ -3,7 +3,7 @@
 {% block title %}Add new topic{% endblock title %}
 
 {% block content %}
-
+<h1>Add new topic</h1>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <form method="post">
@@ -17,10 +17,42 @@
                 <label>Text</label>
                 <textarea name="text" class="form-control" rows="6" required></textarea>
             </div>
+            <div class="form-group">
+                <label>What is the result of <span id="prva"></span>+<span id="druga"></span>?</label>
+                <input type="text" class="form-control" name="izracun" id="rezultat" required>
 
-            <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+            <button id="skrijgumb" type="submit" class="btn btn-success">Submit</button>
         </form>
     </div>
 </div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script>
+
+
+        $(document).ready(function() {
+        let stevilka1 = Math.floor(Math.random() * 10);
+        let stevilka2 = Math.floor(Math.random() * 10);
+            $("#prva").text(stevilka1);
+            $("#druga").text(stevilka2);
+        function sestej(a,b){
+            return a+b;
+        }
+        let skrijGumb = $("#skrijgumb");
+        let rezultat = $("#rezultat");
+        skrijGumb.click(function(e) {
+            if (rezultat.val() === sestej(stevilka1,stevilka2).toString()){
+                skrijGumb.hide();
+                console.log("yaaay");
+            } else {
+                alert("You entered a wrong sum! Try again.");
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+{% endblock scripts %}
